@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CampingRaceGame.GameComponents
 {
-    public class PlayersComponent : DrawableGameComponent
+    public class PlayersComponent : DrawableGameComponent, IDrawable
     {
         private Texture2D humanTexture;
         private Vector2 humanPosition;

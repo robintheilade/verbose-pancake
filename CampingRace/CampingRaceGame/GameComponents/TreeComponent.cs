@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CampingRaceGame.GameComponents
 {
-    public class TreeComponent : DrawableGameComponent
+    public class TreeComponent : DrawableGameComponent, IDrawable
     {
         private Texture2D treeTexture;
         private SpriteBatch spriteBatch;

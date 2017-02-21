@@ -1,4 +1,6 @@
-﻿using CampingRaceGame;
+﻿using Autofac;
+using CampingRaceGame.Autofac;
+using Microsoft.Xna.Framework;
 using System;
 
 namespace CampingRaceWindows
@@ -15,8 +17,13 @@ namespace CampingRaceWindows
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            using (var scope = AutofacConfig.Register())
+            {
+                using (var game = scope.Resolve<Game>())
+                {
+                    game.Run();
+                }
+            }
         }
     }
 #endif

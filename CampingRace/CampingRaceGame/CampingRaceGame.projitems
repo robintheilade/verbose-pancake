@@ -9,8 +9,13 @@
     <Import_RootNamespace>CampingRaceGame</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Autofac\AutofacConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Autofac\GameModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Autofac\InterfaceModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameComponents\ClearGraphicsDeviceComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameComponents\PlayersComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameComponents\ResizeBackBufferComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameComponents\TreeComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDrawable.cs" />
   </ItemGroup>
 </Project>
