@@ -28,7 +28,7 @@ namespace CampingRaceGame.Autofac
         private void HandleGameActivated(IActivatedEventArgs<Game> obj)
         {
             var graphicsDeviceManager = obj.Context.Resolve<GraphicsDeviceManager>();
-            graphicsDeviceManager.IsFullScreen = true;
+            //graphicsDeviceManager.IsFullScreen = true;
 
             var game = obj.Instance;
             game.Content.RootDirectory = "Content";

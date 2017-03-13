@@ -15,7 +15,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameComponents\ClearGraphicsDeviceComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameComponents\PlayersComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameComponents\ResizeBackBufferComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameComponents\SceneComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameComponents\TreeComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDrawable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\IInitialScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\IMainMenuScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\IScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\ISceneFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\ISceneManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\ISplashScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenuScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\SplashScene.cs" />
   </ItemGroup>
 </Project>
