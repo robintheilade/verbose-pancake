@@ -1,0 +1,3 @@
+sørg for at levelscene for sceneobjects i ctor
+how to ignore IModule
+base class for scenes

@@ -19,13 +19,22 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameComponents\TreeComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDrawable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\IInitialScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\ILevelLoaderScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\ILevelScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\IMainMenuScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\IScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\ISceneFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\ISceneManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\ISplashScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\LevelLoaderScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\LevelScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\MainMenuScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneObjects\ISceneObjectComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneObjects\ISceneObjectFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneObjects\SceneObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneObjects\SceneObjectFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\SceneObjects\SpriteSceneObjectComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\SplashScene.cs" />
   </ItemGroup>
 </Project>

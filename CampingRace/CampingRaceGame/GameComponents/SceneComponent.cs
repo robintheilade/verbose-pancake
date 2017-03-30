@@ -1,18 +1,15 @@
 ﻿using CampingRaceGame.Scenes;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace CampingRaceGame.GameComponents
 {
     public class SceneComponent : DrawableGameComponent, ISceneManager
     {
-        private readonly Func<IEnumerable<IScene>> scenesFactory;
-        private IEnumerable<IScene> scenes;
+        private readonly ISceneFactory scenesFactory;
         private IScene currentScene;
 
-        public SceneComponent(Game game, Func<IEnumerable<IScene>> scenesFactory) : base(game)
+        public SceneComponent(Game game, ISceneFactory scenesFactory) : base(game)
         {
             if(scenesFactory == null)
             {
@@ -25,7 +22,6 @@ namespace CampingRaceGame.GameComponents
         public override void Initialize()
         {
             base.Initialize();
-            this.scenes = this.scenesFactory();
             this.ChangeScene<IInitialScene>();
         }
 
@@ -41,9 +37,9 @@ namespace CampingRaceGame.GameComponents
             this.currentScene.Draw(gameTime);
         }
 
-        public void ChangeScene<TScene>() where TScene : IScene
+        public void ChangeScene<TScene>(params object[] args) where TScene : IScene
         {
-            var scene = this.scenes.OfType<TScene>().First();
+            var scene = this.scenesFactory.Create<TScene>(args);
 
             if(this.currentScene != null)
             {

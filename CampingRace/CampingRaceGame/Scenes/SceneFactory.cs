@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using System;
+using System.Linq;
 
 namespace CampingRaceGame.Scenes
 {
@@ -17,9 +18,10 @@ namespace CampingRaceGame.Scenes
             this.scope = scope;
         }
 
-        public TScene Create<TScene>() where TScene : IScene
+        public TScene Create<TScene>(params object[] args) where TScene : IScene
         {
-            return this.scope.Resolve<TScene>();
+            var parameters = args.Select((o, i) => new PositionalParameter(i, o));
+            return this.scope.Resolve<TScene>(parameters);
         }
     }
 }

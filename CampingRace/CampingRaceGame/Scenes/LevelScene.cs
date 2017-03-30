@@ -1,15 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+﻿using CampingRaceGame.GameComponents;
+using CampingRaceGame.Scenes.SceneObjects;
+using Microsoft.Xna.Framework;
 using System;
 
 namespace CampingRaceGame.Scenes
 {
-    public class MainMenuScene : IMainMenuScene
+    public class LevelScene : ILevelScene
     {
         private readonly ISceneManager sceneManager;
         private readonly Game game;
+        private SceneObject[] sceneObjects;
+        private PlayersComponent playersComponent;
 
-        public MainMenuScene(ISceneManager sceneManager, Game game)
+        public LevelScene(ISceneManager sceneManager, Game game, SceneObject[] sceneObjects)
         {
             if (sceneManager == null)
             {
@@ -22,6 +25,7 @@ namespace CampingRaceGame.Scenes
 
             this.sceneManager = sceneManager;
             this.game = game;
+            this.sceneObjects = sceneObjects;
         }
 
         public void Load()
@@ -34,16 +38,15 @@ namespace CampingRaceGame.Scenes
 
         public void Update(GameTime gameTime)
         {
-            var keyboard = Keyboard.GetState();
-            if(keyboard.IsKeyDown(Keys.F1))
-            {
-                this.sceneManager.ChangeScene<ILevelLoaderScene>();
-            }
         }
 
         public void Draw(GameTime gameTime)
         {
-            this.game.GraphicsDevice.Clear(Color.Gold);
+            this.game.GraphicsDevice.Clear(Color.LemonChiffon);
+            foreach (var sceneObject in this.sceneObjects)
+            {
+                sceneObject.Draw();
+            }
         }
     }
 }

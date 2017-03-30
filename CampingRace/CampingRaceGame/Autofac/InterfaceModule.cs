@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Core;
 
 namespace CampingRaceGame.Autofac
 {
@@ -10,6 +11,8 @@ namespace CampingRaceGame.Autofac
             var assembly = typeof(InterfaceModule).Assembly;
             builder
                 .RegisterAssemblyTypes(assembly)
+                .Except<GameModule>()
+                .Except<InterfaceModule>()
                 .AsImplementedInterfaces()
                 .SingleInstance()
                 ;
