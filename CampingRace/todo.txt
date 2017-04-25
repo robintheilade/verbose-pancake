@@ -1,3 +1,28 @@
-sørg for at levelscene for sceneobjects i ctor
+LevelLoaderScene skal læse content async og til sidst kalde ChangeScene
+
+
+vi tager alt for store skrit sceneobject bør vente til efter levelscene og treecomponent/playercomponent er flyttet
+
+vi burde blive bedre til at bruge github, pull requests og issues
+
+
 how to ignore IModule
+	var moduleType = typeof(Module);
+	.Where(t => !moduleType.IsAssignableFrom(t))
+
 base class for scenes
+	hvorfor?
+		minimere ctor parameter tjek og opbevaring af parametre til senere brug
+		minimere antallet af metoder der ikke har nogen instruktioner i body (pt. Load, Unload, Update, Draw)
+
+
+denne registrering kommer til at give problemer med forventningen om at ILevelScene skal instantieres per brug
+            builder
+                .RegisterAssemblyTypes(assembly)
+                .Except<GameModule>()
+                .Except<InterfaceModule>()
+                .AsImplementedInterfaces()
+                .SingleInstance()
+                ;
+
+
