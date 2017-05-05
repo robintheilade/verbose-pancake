@@ -12,7 +12,7 @@ namespace CampingRaceGame.Scenes
         private SceneObject[] sceneObjects;
         private PlayersComponent playersComponent;
 
-        public LevelScene(ISceneManager sceneManager, Game game, SceneObject[] sceneObjects)
+        public LevelScene(ISceneManager sceneManager, Game game, ILevelLoaderScene levelLoaderScene)
         {
             if (sceneManager == null)
             {
@@ -22,10 +22,14 @@ namespace CampingRaceGame.Scenes
             {
                 throw new ArgumentNullException(nameof(game));
             }
+            if (levelLoaderScene == null)
+            {
+                throw new ArgumentNullException(nameof(levelLoaderScene));
+            }
 
             this.sceneManager = sceneManager;
             this.game = game;
-            this.sceneObjects = sceneObjects;
+            this.sceneObjects = levelLoaderScene.SceneObjects;
         }
 
         public void Load()

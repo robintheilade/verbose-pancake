@@ -12,6 +12,12 @@ namespace CampingRaceGame.Scenes
         private SceneObject[] sceneObjects;
         private bool changedScene;
 
+        public SceneObject[] SceneObjects
+        {
+            get;
+            private set;
+        }
+
         public LevelLoaderScene(ISceneManager sceneManager, Game game, ISceneObjectFactory sceneObjectFactory)
         {
             if (sceneManager == null)
@@ -53,7 +59,8 @@ namespace CampingRaceGame.Scenes
             if(!this.changedScene)
             {
                 this.changedScene = true;
-                this.sceneManager.ChangeScene<ILevelScene>(this.sceneObjects);
+                this.SceneObjects = this.sceneObjects;
+                this.sceneManager.ChangeScene<ILevelScene>();
             }
         }
 

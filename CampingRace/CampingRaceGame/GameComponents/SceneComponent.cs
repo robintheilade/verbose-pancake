@@ -37,9 +37,9 @@ namespace CampingRaceGame.GameComponents
             this.currentScene.Draw(gameTime);
         }
 
-        public void ChangeScene<TScene>(params object[] args) where TScene : IScene
+        public void ChangeScene<TScene>() where TScene : IScene
         {
-            var scene = this.scenesFactory.Create<TScene>(args);
+            var scene = this.scenesFactory.Create<TScene>();
 
             if(this.currentScene != null)
             {
