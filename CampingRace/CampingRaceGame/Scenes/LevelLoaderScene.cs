@@ -9,16 +9,11 @@ namespace CampingRaceGame.Scenes
         private readonly ISceneManager sceneManager;
         private readonly Game game;
         private readonly ISceneObjectFactory sceneObjectFactory;
+        private readonly ILevel level;
         private SceneObject[] sceneObjects;
         private bool changedScene;
 
-        public SceneObject[] SceneObjects
-        {
-            get;
-            private set;
-        }
-
-        public LevelLoaderScene(ISceneManager sceneManager, Game game, ISceneObjectFactory sceneObjectFactory)
+        public LevelLoaderScene(ISceneManager sceneManager, Game game, ISceneObjectFactory sceneObjectFactory, ILevel level)
         {
             if (sceneManager == null)
             {
@@ -32,10 +27,15 @@ namespace CampingRaceGame.Scenes
             {
                 throw new ArgumentNullException(nameof(sceneObjectFactory));
             }
+            if(level == null)
+            {
+                throw new ArgumentNullException(nameof(level));
+            }
 
             this.sceneManager = sceneManager;
             this.game = game;
             this.sceneObjectFactory = sceneObjectFactory;
+            this.level = level;
         }
 
         public void Load()
@@ -59,7 +59,7 @@ namespace CampingRaceGame.Scenes
             if(!this.changedScene)
             {
                 this.changedScene = true;
-                this.SceneObjects = this.sceneObjects;
+                this.level.SceneObjects = this.sceneObjects;
                 this.sceneManager.ChangeScene<ILevelScene>();
             }
         }
