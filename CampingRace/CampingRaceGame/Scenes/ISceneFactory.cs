@@ -2,6 +2,6 @@
 {
     public interface ISceneFactory
     {
-        TScene Create<TScene>(params object[] args) where TScene : IScene;
+        TScene Create<TScene>() where TScene : IScene;
     }
 }
